@@ -214,7 +214,7 @@ var ReferrerKiller = (function () {
 	 * @param {Object} [imgAttributesParam]
 	 * @return {String} html
 	 */
-	var imageHtml = PUB.imageHtml = function (url, imgAttributesParam) {
+	var imageHtml = PUB.imageHtml = function (url, imgAttributesParam, iframeAttributes) {
 		var imgAttributes = imgAttributesParam || {},
 		/*-- Making sure this styles are applyed in the image but let the possibility to overwrite them --*/
 			defaultStyles = 'border:none; margin: 0; padding: 0';
@@ -223,7 +223,7 @@ var ReferrerKiller = (function () {
 		} else {
 			imgAttributes.style = defaultStyles;
 		}
-		return htmlString('<img src="' + escapeDoubleQuotes(url) + '" ' + objectToHtmlAttributes(imgAttributes) + '/>');
+		return htmlString('<img src="' + escapeDoubleQuotes(url) + '" ' + objectToHtmlAttributes(imgAttributes) + '/>', iframeAttributes);
 	};
 	
 	/**
