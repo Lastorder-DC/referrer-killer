@@ -153,10 +153,10 @@ var ReferrerKiller = (function () {
 					ifr.width  = width;\
 				}\
 			</script>' +
-			'<body onload=\\\'resizeWindow()\\\'>\' + decodeURIComponent(\'' +
+			'<body onload=\\\'resizeWindow()\\\'>' +
 			/*-- Content --*/
-			encodeURIComponent(html) +
-		'\') +\'</body></html>\'"></iframe>';
+			html +
+		'</body></html>\'"></iframe>';
 	}
 
 	/*-- Public interface --*/
