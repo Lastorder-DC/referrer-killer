@@ -113,7 +113,7 @@ var ReferrerKiller = (function () {
 		id = '__referrer_killer_' + (new Date).getTime() + Math.floor(Math.random()*9999);
 		/*-- Returning html with the hack wrapper --*/
 		return '<iframe \
-				style="border 1px solid #ff0000" \
+				style="border 1px solid #ff0000;max-width:100%; max-height:100%" \
 				scrolling="no" \
 				frameborder="no" \
 				allowtransparency="true" ' +
@@ -125,7 +125,7 @@ var ReferrerKiller = (function () {
 			<html>\
 			<head>\
 			<meta charset=\\\'utf-8\\\'>\
-			<style>*{margin:0;padding:0;border:0;}</style>\
+			<style>*{margin:0;padding:0;border:0;}img{max-width:100%; max-height:100%}</style>\
 			</head>' +
 			/*-- Function to adapt iframe's size to content's size --*/
 			'<script>\
@@ -153,10 +153,10 @@ var ReferrerKiller = (function () {
 					ifr.width  = width;\
 				}\
 			</script>' +
-			'<body onload=\\\'resizeWindow()\\\'>' +
+			'<body onload=\\\'resizeWindow()\\\'>\' + decodeURIComponent(\'' +
 			/*-- Content --*/
-			escapeDoubleQuotes(html) +
-		'</body></html>\'"></iframe>';
+			encodeURIComponent(html) +
+		'\') +\'</body></html>\'"></iframe>';
 	}
 
 	/*-- Public interface --*/
