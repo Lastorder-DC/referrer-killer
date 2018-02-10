@@ -155,7 +155,7 @@ var ReferrerKiller = (function () {
 			</script>' +
 			'<body onload=\\\'resizeWindow()\\\'>' +
 			/*-- Content --*/
-			html +
+			escapeDoubleQuotes(html) +
 		'</body></html>\'"></iframe>';
 	}
 
